@@ -1,6 +1,7 @@
 package com.ne.backend.service;
 
 import com.ne.backend.entity.User;
+import com.ne.backend.exception.ResourceNotFoundException;
 import com.ne.backend.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
