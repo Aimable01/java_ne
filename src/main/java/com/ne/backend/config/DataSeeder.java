@@ -5,6 +5,7 @@ import com.ne.backend.enums.Role;
 import com.ne.backend.enums.UserStatus;
 import com.ne.backend.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.jspecify.annotations.NonNull;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
@@ -19,7 +20,7 @@ public class DataSeeder implements CommandLineRunner {
     private final PasswordEncoder passwordEncoder;
 
     @Override
-    public void run(String... args) {
+    public void run(String @NonNull ... args) {
 
         if (userRepository.count() > 0) {
             return;
