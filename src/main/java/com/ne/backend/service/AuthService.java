@@ -1,5 +1,6 @@
 package com.ne.backend.service;
 
+import com.ne.backend.config.JwtUtil;
 import com.ne.backend.dto.LoginRequest;
 import com.ne.backend.dto.LoginResponse;
 import com.ne.backend.dto.RegisterRequest;
