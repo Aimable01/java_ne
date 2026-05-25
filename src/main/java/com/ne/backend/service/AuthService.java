@@ -47,11 +47,11 @@ public class AuthService {
 
         userRepository.save(user);
 
-        emailService.sendEmail(
-                user.getEmail(),
-                "Welcome",
-                "Your account has been created successfully"
-        );
+//        emailService.sendEmail(
+//                user.getEmail(),
+//                "Welcome",
+//                "Your account has been created successfully"
+//        );
     }
 
     public LoginResponse login(LoginRequest request) {
