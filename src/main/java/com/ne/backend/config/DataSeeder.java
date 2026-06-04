@@ -5,6 +5,7 @@ import com.ne.backend.enums.Role;
 import com.ne.backend.enums.UserStatus;
 import com.ne.backend.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.jspecify.annotations.NonNull;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -14,6 +15,7 @@ import java.util.Set;
 
 @Component
 @RequiredArgsConstructor
+@Slf4j
 public class DataSeeder implements CommandLineRunner {
 
     private final UserRepository userRepository;
@@ -21,10 +23,14 @@ public class DataSeeder implements CommandLineRunner {
 
     @Override
     public void run(String @NonNull ... args) {
+        log.info("Checking if data seeding is required...");
 
         if (userRepository.count() > 0) {
+            log.info("Database already contains data. Skipping seeding.");
             return;
         }
+
+        log.info("Starting data seeding...");
 
         User admin = User.builder()
                 .code("EMP-001")
@@ -62,5 +68,7 @@ public class DataSeeder implements CommandLineRunner {
         userRepository.save(admin);
         userRepository.save(manager);
         userRepository.save(user);
+
+        log.info("Data seeding completed successfully. Created 3 default users.");
     }
 }
