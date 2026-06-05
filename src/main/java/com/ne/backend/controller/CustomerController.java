@@ -38,7 +38,7 @@ public class CustomerController {
             @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "401", description = "Unauthorized"),
             @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "403", description = "Access denied")
     })
-    @PreAuthorize("hasAnyRole('ADMIN', 'OPERATOR')")
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @PostMapping
     public ApiResponse<CustomerResponse> create(@Valid @RequestBody CreateCustomerRequest request) {
         log.info("Create customer request received");
@@ -57,7 +57,7 @@ public class CustomerController {
             @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "401", description = "Unauthorized"),
             @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "403", description = "Access denied")
     })
-    @PreAuthorize("hasAnyRole('ADMIN', 'OPERATOR', 'FINANCE', 'CUSTOMER')")
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @GetMapping("/{id}")
     public ApiResponse<CustomerResponse> getById(@PathVariable Long id) {
         log.info("Get customer by ID request received: {}", id);
@@ -76,7 +76,7 @@ public class CustomerController {
             @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "401", description = "Unauthorized"),
             @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "403", description = "Access denied")
     })
-    @PreAuthorize("hasAnyRole('ADMIN', 'OPERATOR', 'FINANCE', 'CUSTOMER')")
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @GetMapping("/national-id/{nationalId}")
     public ApiResponse<CustomerResponse> getByNationalId(@PathVariable String nationalId) {
         log.info("Get customer by national ID request received: {}", nationalId);
@@ -94,7 +94,7 @@ public class CustomerController {
             @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "401", description = "Unauthorized"),
             @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "403", description = "Access denied")
     })
-    @PreAuthorize("hasAnyRole('ADMIN', 'OPERATOR', 'FINANCE')")
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @GetMapping
     public ApiResponse<Page<CustomerResponse>> getAll(
             @Parameter(description = "Page number (0-indexed)") @RequestParam(defaultValue = "0") int page,
@@ -119,7 +119,7 @@ public class CustomerController {
             @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "401", description = "Unauthorized"),
             @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "403", description = "Access denied")
     })
-    @PreAuthorize("hasAnyRole('ADMIN', 'OPERATOR', 'FINANCE')")
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @GetMapping("/search")
     public ApiResponse<Page<CustomerResponse>> search(
             @Parameter(description = "First name filter") @RequestParam(required = false) String firstName,
@@ -152,7 +152,7 @@ public class CustomerController {
             @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "401", description = "Unauthorized"),
             @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "403", description = "Access denied")
     })
-    @PreAuthorize("hasAnyRole('ADMIN', 'OPERATOR')")
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @PutMapping("/{id}")
     public ApiResponse<CustomerResponse> update(@PathVariable Long id, @Valid @RequestBody UpdateCustomerRequest request) {
         log.info("Update customer request received: {}", id);

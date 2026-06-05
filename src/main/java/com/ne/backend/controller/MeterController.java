@@ -58,7 +58,7 @@ public class MeterController {
             @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "401", description = "Unauthorized"),
             @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "403", description = "Access denied")
     })
-    @PreAuthorize("hasAnyRole('ADMIN', 'OPERATOR', 'FINANCE', 'CUSTOMER')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'OPERATOR', 'FINANCE')")
     @GetMapping("/{id}")
     public ApiResponse<MeterResponse> getById(@PathVariable Long id) {
         log.info("Get meter by ID request received: {}", id);
@@ -77,7 +77,7 @@ public class MeterController {
             @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "401", description = "Unauthorized"),
             @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "403", description = "Access denied")
     })
-    @PreAuthorize("hasAnyRole('ADMIN', 'OPERATOR', 'FINANCE', 'CUSTOMER')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'OPERATOR', 'FINANCE')")
     @GetMapping("/number/{meterNumber}")
     public ApiResponse<MeterResponse> getByMeterNumber(@PathVariable String meterNumber) {
         log.info("Get meter by number request received: {}", meterNumber);
@@ -150,7 +150,7 @@ public class MeterController {
             @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "401", description = "Unauthorized"),
             @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "403", description = "Access denied")
     })
-    @PreAuthorize("hasAnyRole('ADMIN', 'OPERATOR', 'FINANCE', 'CUSTOMER')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'OPERATOR', 'FINANCE')")
     @GetMapping("/customer/{customerId}")
     public ApiResponse<Page<MeterResponse>> getByCustomer(
             @PathVariable Long customerId,

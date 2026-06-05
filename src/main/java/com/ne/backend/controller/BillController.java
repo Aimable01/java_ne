@@ -40,7 +40,7 @@ public class BillController {
             @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "401", description = "Unauthorized"),
             @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "403", description = "Access denied")
     })
-    @PreAuthorize("hasAnyRole('ADMIN', 'OPERATOR')")
+    @PreAuthorize("hasAnyRole('ADMIN','FINANCE')")
     @PostMapping("/generate/{meterReadingId}")
     public ApiResponse<BillResponse> generateBill(@PathVariable Long meterReadingId) {
         log.info("Generate bill request received for meter reading: {}", meterReadingId);
@@ -59,7 +59,7 @@ public class BillController {
             @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "401", description = "Unauthorized"),
             @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "403", description = "Access denied")
     })
-    @PreAuthorize("hasAnyRole('ADMIN', 'OPERATOR', 'FINANCE', 'CUSTOMER')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'FINANCE', 'CUSTOMER')")
     @GetMapping("/{id}")
     public ApiResponse<BillResponse> getById(@PathVariable Long id, Authentication authentication) {
         log.info("Get bill by ID request received: {}", id);
@@ -87,7 +87,7 @@ public class BillController {
             @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "401", description = "Unauthorized"),
             @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "403", description = "Access denied")
     })
-    @PreAuthorize("hasAnyRole('ADMIN', 'OPERATOR', 'FINANCE')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'FINANCE')")
     @GetMapping
     public ApiResponse<Page<BillResponse>> getAll(
             @Parameter(description = "Page number (0-indexed)") @RequestParam(defaultValue = "0") int page,
@@ -112,7 +112,7 @@ public class BillController {
             @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "401", description = "Unauthorized"),
             @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "403", description = "Access denied")
     })
-    @PreAuthorize("hasAnyRole('ADMIN', 'OPERATOR', 'FINANCE')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'FINANCE')")
     @GetMapping("/search")
     public ApiResponse<Page<BillResponse>> search(
             @Parameter(description = "Customer ID filter") @RequestParam(required = false) Long customerId,
@@ -143,7 +143,7 @@ public class BillController {
             @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "401", description = "Unauthorized"),
             @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "403", description = "Access denied")
     })
-    @PreAuthorize("hasAnyRole('ADMIN', 'OPERATOR', 'FINANCE', 'CUSTOMER')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'FINANCE', 'CUSTOMER')")
     @GetMapping("/customer/{customerId}")
     public ApiResponse<List<BillResponse>> getByCustomer(@PathVariable Long customerId, Authentication authentication) {
         log.info("Get bills by customer request received: {}", customerId);
