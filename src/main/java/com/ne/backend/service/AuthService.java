@@ -47,7 +47,7 @@ public class AuthService {
                 .password(passwordEncoder.encode(request.getPassword()))
                 .mobile(request.getMobile())
                 .status(UserStatus.ACTIVE)
-                .roles(Set.of(Role.ROLE_USER))
+                .roles(Set.of(Role.ROLE_CUSTOMER))
                 .build();
 
         userRepository.save(user);
