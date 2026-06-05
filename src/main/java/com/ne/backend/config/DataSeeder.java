@@ -36,7 +36,7 @@ public class DataSeeder implements CommandLineRunner {
                 .code("EMP-001")
                 .firstName("System")
                 .lastName("Admin")
-                .email("admin@app.com")
+                .email("aimable.kwizera14@gmail.com")
                 .password(passwordEncoder.encode("Admin@1234"))
                 .mobile("0700000001")
                 .status(UserStatus.ACTIVE)
