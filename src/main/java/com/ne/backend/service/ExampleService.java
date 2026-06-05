@@ -5,9 +5,9 @@ import com.ne.backend.exception.ResourceNotFoundException;
 import com.ne.backend.repository.ExampleRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -16,9 +16,14 @@ public class ExampleService {
 
     private final ExampleRepository exampleRepository;
 
-    public List<ExampleEntity> getAll() {
-        log.info("Fetching all examples");
-        return exampleRepository.findAll();
+    public Page<ExampleEntity> getAll(Pageable pageable) {
+        log.info("Fetching all examples with pagination");
+        return exampleRepository.findAll(pageable);
+    }
+
+    public Page<ExampleEntity> searchExamples(String name, String description, Pageable pageable) {
+        log.info("Searching examples with filters - name: {}, description: {}", name, description);
+        return exampleRepository.searchExamples(name, description, pageable);
     }
 
     public ExampleEntity getById(Long id) {

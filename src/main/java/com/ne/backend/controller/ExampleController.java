@@ -24,8 +24,8 @@ public class ExampleController {
     private final ExampleService exampleService;
 
     @Operation(
-            summary = "Get all examples",
-            description = "Retrieves all examples in the system"
+            summary = "Get all examples with pagination",
+            description = "Retrieves all examples with pagination support"
     )
     @ApiResponses(value = {
             @io.swagger.v3.oas.annotations.responses.ApiResponse(
@@ -43,13 +43,65 @@ public class ExampleController {
     })
     @PreAuthorize("hasAnyRole('ADMIN','MANAGER')")
     @GetMapping
-    public ApiResponse<?> getAll() {
-        log.info("Get all examples request received");
+    public ApiResponse<?> getAll(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size,
+            @RequestParam(defaultValue = "id") String sortBy,
+            @RequestParam(defaultValue = "asc") String sortDir
+    ) {
+        log.info("Get all examples request received - page: {}, size: {}, sortBy: {}, sortDir: {}", page, size, sortBy, sortDir);
+
+        org.springframework.data.domain.Sort sort = sortDir.equalsIgnoreCase("desc") 
+                ? org.springframework.data.domain.Sort.by(sortBy).descending() 
+                : org.springframework.data.domain.Sort.by(sortBy).ascending();
+        org.springframework.data.domain.Pageable pageable = org.springframework.data.domain.PageRequest.of(page, size, sort);
 
         return ApiResponse.builder()
                 .success(true)
                 .message("Examples fetched")
-                .data(exampleService.getAll())
+                .data(exampleService.getAll(pageable))
+                .build();
+    }
+
+    @Operation(
+            summary = "Search examples",
+            description = "Search examples with filters and pagination"
+    )
+    @ApiResponses(value = {
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(
+                    responseCode = "200",
+                    description = "Examples retrieved successfully"
+            ),
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(
+                    responseCode = "403",
+                    description = "Access denied"
+            ),
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(
+                    responseCode = "401",
+                    description = "Unauthorized"
+            )
+    })
+    @PreAuthorize("hasAnyRole('ADMIN','MANAGER')")
+    @GetMapping("/search")
+    public ApiResponse<?> searchExamples(
+            @RequestParam(required = false) String name,
+            @RequestParam(required = false) String description,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size,
+            @RequestParam(defaultValue = "id") String sortBy,
+            @RequestParam(defaultValue = "asc") String sortDir
+    ) {
+        log.info("Search examples request received - name: {}, description: {}", name, description);
+
+        org.springframework.data.domain.Sort sort = sortDir.equalsIgnoreCase("desc") 
+                ? org.springframework.data.domain.Sort.by(sortBy).descending() 
+                : org.springframework.data.domain.Sort.by(sortBy).ascending();
+        org.springframework.data.domain.Pageable pageable = org.springframework.data.domain.PageRequest.of(page, size, sort);
+
+        return ApiResponse.builder()
+                .success(true)
+                .message("Examples fetched")
+                .data(exampleService.searchExamples(name, description, pageable))
                 .build();
     }
 
