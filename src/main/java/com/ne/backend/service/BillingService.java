@@ -25,6 +25,10 @@ import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.util.List;
 
+/**
+ * Service for managing bills
+ * Customer extends User, so customer has firstName, lastName, email, mobile
+ */
 @Service
 @RequiredArgsConstructor
 @Slf4j
@@ -36,6 +40,7 @@ public class BillingService {
     private final TariffRepository tariffRepository;
     private final NotificationService notificationService;
 
+    // Generate a bill for a meter reading
     @Transactional
     public BillResponse generateBill(Long meterReadingId) {
         log.info("Generating bill for meter reading ID: {}", meterReadingId);
@@ -46,7 +51,8 @@ public class BillingService {
         Meter meter = meterReading.getMeter();
         Customer customer = meter.getCustomer();
 
-        if (customer.getStatus() != CustomerStatus.ACTIVE) {
+        // Check customer-specific status (not User status)
+        if (customer.getCustomerStatus() != CustomerStatus.ACTIVE) {
             throw new RuntimeException("Cannot generate bill for inactive customer");
         }
 
@@ -115,6 +121,7 @@ public class BillingService {
         return mapToResponse(saved);
     }
 
+    // Get bill by ID
     public BillResponse getById(Long id) {
         log.info("Fetching bill by ID: {}", id);
         Bill bill = billRepository.findById(id)
@@ -122,12 +129,14 @@ public class BillingService {
         return mapToResponse(bill);
     }
 
+    // Get all bills with pagination
     public Page<BillResponse> getAll(Pageable pageable) {
         log.info("Fetching all bills with pagination");
         return billRepository.findAll(pageable)
                 .map(this::mapToResponse);
     }
 
+    // Search bills with filters
     public Page<BillResponse> search(
             Long customerId,
             Long meterId,
@@ -141,6 +150,7 @@ public class BillingService {
                 .map(this::mapToResponse);
     }
 
+    // Get bills by customer
     public List<BillResponse> getByCustomer(Long customerId) {
         log.info("Fetching bills for customer: {}", customerId);
         Customer customer = customerRepository.findById(customerId)
@@ -150,6 +160,7 @@ public class BillingService {
                 .toList();
     }
 
+    // Approve a pending bill
     public BillResponse approveBill(Long id) {
         log.info("Approving bill with ID: {}", id);
         Bill bill = billRepository.findById(id)
@@ -166,6 +177,7 @@ public class BillingService {
         return mapToResponse(updated);
     }
 
+    // Delete a bill
     public void delete(Long id) {
         log.info("Deleting bill with ID: {}", id);
         Bill bill = billRepository.findById(id)
@@ -179,11 +191,15 @@ public class BillingService {
         log.info("Bill deleted successfully with ID: {}", id);
     }
 
+    // Map Bill entity to BillResponse DTO
     private BillResponse mapToResponse(Bill bill) {
+        Customer customer = bill.getCustomer();
+        String customerName = customer.getFirstName() + " " + customer.getLastName();
+        
         return BillResponse.builder()
                 .id(bill.getId())
-                .customerId(bill.getCustomer().getId())
-                .customerName(bill.getCustomer().getFullName())
+                .customerId(customer.getId())
+                .customerName(customerName)
                 .meterId(bill.getMeter().getId())
                 .meterNumber(bill.getMeter().getMeterNumber())
                 .meterType(bill.getMeter().getMeterType())

@@ -8,6 +8,10 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
+/**
+ * DTO for customer response
+ * Includes both User fields and Customer-specific fields
+ */
 @Data
 @Builder
 @NoArgsConstructor
@@ -15,12 +19,19 @@ import java.time.LocalDateTime;
 public class CustomerResponse {
 
     private Long id;
-    private String fullName;
-    private String nationalId;
+    
+    // User fields (inherited)
+    private String firstName;
+    private String lastName;
     private String email;
-    private String phoneNumber;
+    private String mobile;
+    
+    // Customer-specific fields
+    private String nationalId;
     private String address;
-    private CustomerStatus status;
+    private CustomerStatus customerStatus;
+    
+    // Timestamps
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 }

@@ -10,6 +10,10 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+/**
+ * DTO for meter response
+ * Customer name is computed from firstName and lastName (inherited from User)
+ */
 @Data
 @Builder
 @NoArgsConstructor

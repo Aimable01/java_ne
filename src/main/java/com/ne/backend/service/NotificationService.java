@@ -20,6 +20,10 @@ import org.springframework.transaction.annotation.Transactional;
 import java.time.YearMonth;
 import java.util.List;
 
+/**
+ * Service for managing notifications
+ * Customer extends User, so customer has firstName, lastName, email, mobile
+ */
 @Service
 @RequiredArgsConstructor
 @Slf4j
@@ -29,10 +33,12 @@ public class NotificationService {
     private final CustomerRepository customerRepository;
     private final EmailService emailService;
 
+    // Create bill notification
     public NotificationResponse createBillNotification(Bill bill) {
         log.info("Creating bill notification for bill ID: {}", bill.getId());
 
         Customer customer = bill.getCustomer();
+        String customerName = customer.getFirstName() + " " + customer.getLastName();
         YearMonth yearMonth = YearMonth.of(bill.getBillingYear(), bill.getBillingMonth());
         String monthYear = yearMonth.getMonth().name() + " " + yearMonth.getYear();
 
@@ -45,7 +51,7 @@ public class NotificationService {
                 "- Due Date: %s\n\n" +
                 "Please ensure payment is made before the due date to avoid late payment penalties.\n\n" +
                 "Thank you for your business.",
-                customer.getFullName(),
+                customerName,
                 monthYear,
                 bill.getTotalAmount(),
                 bill.getConsumption(),
@@ -68,11 +74,13 @@ public class NotificationService {
         return mapToResponse(saved);
     }
 
+    // Create payment notification
     public NotificationResponse createPaymentNotification(Payment payment) {
         log.info("Creating payment notification for payment ID: {}", payment.getId());
 
         Bill bill = payment.getBill();
         Customer customer = bill.getCustomer();
+        String customerName = customer.getFirstName() + " " + customer.getLastName();
         YearMonth yearMonth = YearMonth.of(bill.getBillingYear(), bill.getBillingMonth());
         String monthYear = yearMonth.getMonth().name() + " " + yearMonth.getYear();
 
@@ -83,7 +91,7 @@ public class NotificationService {
                 "- Amount Paid: %s FRW\n" +
                 "- Payment Method: %s\n" +
                 "- Payment Date: %s\n\n",
-                customer.getFullName(),
+                customerName,
                 payment.getAmountPaid(),
                 monthYear,
                 payment.getAmountPaid(),
@@ -115,10 +123,12 @@ public class NotificationService {
         return mapToResponse(saved);
     }
 
+    // Create full payment notification
     public NotificationResponse createFullPaymentNotification(Bill bill) {
         log.info("Creating full payment notification for bill ID: {}", bill.getId());
 
         Customer customer = bill.getCustomer();
+        String customerName = customer.getFirstName() + " " + customer.getLastName();
         YearMonth yearMonth = YearMonth.of(bill.getBillingYear(), bill.getBillingMonth());
         String monthYear = yearMonth.getMonth().name() + " " + yearMonth.getYear();
 
@@ -126,7 +136,7 @@ public class NotificationService {
         String message = String.format(
                 "Dear %s,\n\nYour %s utility bill of %s FRW has been successfully processed and fully paid.\n\n" +
                 "Thank you for your prompt payment. We appreciate your business.",
-                customer.getFullName(),
+                customerName,
                 monthYear,
                 bill.getTotalAmount()
         );
@@ -146,6 +156,7 @@ public class NotificationService {
         return mapToResponse(saved);
     }
 
+    // Send email notification
     @Transactional
     public void sendEmailNotification(Notification notification) {
         try {
@@ -165,6 +176,7 @@ public class NotificationService {
         }
     }
 
+    // Get notification by ID
     public NotificationResponse getById(Long id) {
         log.info("Fetching notification by ID: {}", id);
         Notification notification = notificationRepository.findById(id)
@@ -172,12 +184,14 @@ public class NotificationService {
         return mapToResponse(notification);
     }
 
+    // Get all notifications with pagination
     public Page<NotificationResponse> getAll(Pageable pageable) {
         log.info("Fetching all notifications with pagination");
         return notificationRepository.findAll(pageable)
                 .map(this::mapToResponse);
     }
 
+    // Search notifications with filters
     public Page<NotificationResponse> search(
             Long customerId,
             NotificationType notificationType,
@@ -189,6 +203,7 @@ public class NotificationService {
                 .map(this::mapToResponse);
     }
 
+    // Get notifications by customer
     public List<NotificationResponse> getByCustomer(Long customerId) {
         log.info("Fetching notifications for customer: {}", customerId);
         Customer customer = customerRepository.findById(customerId)
@@ -198,6 +213,7 @@ public class NotificationService {
                 .toList();
     }
 
+    // Get unread notifications by customer
     public List<NotificationResponse> getUnreadByCustomer(Long customerId) {
         log.info("Fetching unread notifications for customer: {}", customerId);
         Customer customer = customerRepository.findById(customerId)
@@ -207,11 +223,13 @@ public class NotificationService {
                 .toList();
     }
 
+    // Count unread notifications by customer
     public Long countUnreadByCustomer(Long customerId) {
         log.info("Counting unread notifications for customer: {}", customerId);
         return notificationRepository.countUnreadByCustomer(customerId);
     }
 
+    // Mark notification as read
     public NotificationResponse markAsRead(Long id) {
         log.info("Marking notification as read: {}", id);
         Notification notification = notificationRepository.findById(id)
@@ -224,6 +242,7 @@ public class NotificationService {
         return mapToResponse(updated);
     }
 
+    // Delete notification
     public void delete(Long id) {
         log.info("Deleting notification with ID: {}", id);
         Notification notification = notificationRepository.findById(id)
@@ -233,11 +252,15 @@ public class NotificationService {
         log.info("Notification deleted successfully with ID: {}", id);
     }
 
+    // Map Notification entity to NotificationResponse DTO
     private NotificationResponse mapToResponse(Notification notification) {
+        Customer customer = notification.getCustomer();
+        String customerName = customer.getFirstName() + " " + customer.getLastName();
+        
         return NotificationResponse.builder()
                 .id(notification.getId())
-                .customerId(notification.getCustomer().getId())
-                .customerName(notification.getCustomer().getFullName())
+                .customerId(customer.getId())
+                .customerName(customerName)
                 .notificationType(notification.getNotificationType())
                 .subject(notification.getSubject())
                 .message(notification.getMessage())

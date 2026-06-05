@@ -8,24 +8,37 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * DTO for updating an existing customer
+ * Can update both User fields and Customer-specific fields
+ */
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class UpdateCustomerRequest {
 
-    private String fullName;
+    // User's first name (inherited from User)
+    private String firstName;
 
-    @Pattern(regexp = "^1[0-9]{15}$", message = "National ID must be 16 digits starting with 1")
-    private String nationalId;
+    // User's last name (inherited from User)
+    private String lastName;
 
+    // User's email (inherited from User)
     @Email(message = "Email must be valid")
     private String email;
 
+    // User's phone number (inherited from User)
     @Pattern(regexp = "^\\+?[0-9]{10,15}$", message = "Phone number must be valid")
-    private String phoneNumber;
+    private String mobile;
 
+    // Customer-specific: National ID
+    @Pattern(regexp = "^1[0-9]{15}$", message = "National ID must be 16 digits starting with 1")
+    private String nationalId;
+
+    // Customer-specific: Address
     private String address;
 
-    private CustomerStatus status;
+    // Customer-specific status
+    private CustomerStatus customerStatus;
 }

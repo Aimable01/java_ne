@@ -2,64 +2,54 @@ package com.ne.backend.entity;
 
 import com.ne.backend.enums.CustomerStatus;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 
+/**
+ * Customer entity extending User
+ * Contains customer-specific information for utility billing
+ */
 @Entity
 @Table(name = "customers")
 @Data
-@Builder
+@EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
-public class Customer {
+public class Customer extends User {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @NotBlank(message = "Full name is required")
-    @Column(nullable = false)
-    private String fullName;
-
+    // National ID (16 digits starting with 1)
     @NotBlank(message = "National ID is required")
     @Column(nullable = false, unique = true)
     @Pattern(regexp = "^1[0-9]{15}$", message = "National ID must be 16 digits starting with 1")
     private String nationalId;
 
-    @NotBlank(message = "Email is required")
-    @Email(message = "Email must be valid")
-    @Column(nullable = false, unique = true)
-    private String email;
-
-    @NotBlank(message = "Phone number is required")
-    @Pattern(regexp = "^\\+?[0-9]{10,15}$", message = "Phone number must be valid")
-    @Column(nullable = false)
-    private String phoneNumber;
-
+    // Customer's physical address
     @NotBlank(message = "Address is required")
     @Column(nullable = false)
     private String address;
 
+    // Customer-specific status (ACTIVE/INACTIVE)
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    @Builder.Default
-    private CustomerStatus status = CustomerStatus.ACTIVE;
+    private CustomerStatus customerStatus = CustomerStatus.ACTIVE;
 
+    // Timestamp when customer was created
     @CreationTimestamp
     @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
+    // Timestamp when customer was last updated
     @Column
     private LocalDateTime updatedAt;
 
+    // Update timestamp before saving
     @PreUpdate
     public void preUpdate() {
         this.updatedAt = LocalDateTime.now();

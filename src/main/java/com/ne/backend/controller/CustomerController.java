@@ -122,11 +122,12 @@ public class CustomerController {
     @PreAuthorize("hasAnyRole('ADMIN', 'OPERATOR', 'FINANCE')")
     @GetMapping("/search")
     public ApiResponse<Page<CustomerResponse>> search(
-            @Parameter(description = "Full name filter") @RequestParam(required = false) String fullName,
+            @Parameter(description = "First name filter") @RequestParam(required = false) String firstName,
+            @Parameter(description = "Last name filter") @RequestParam(required = false) String lastName,
             @Parameter(description = "National ID filter") @RequestParam(required = false) String nationalId,
             @Parameter(description = "Email filter") @RequestParam(required = false) String email,
-            @Parameter(description = "Phone number filter") @RequestParam(required = false) String phoneNumber,
-            @Parameter(description = "Status filter") @RequestParam(required = false) CustomerStatus status,
+            @Parameter(description = "Phone number filter") @RequestParam(required = false) String mobile,
+            @Parameter(description = "Status filter") @RequestParam(required = false) CustomerStatus customerStatus,
             @Parameter(description = "Page number (0-indexed)") @RequestParam(defaultValue = "0") int page,
             @Parameter(description = "Page size") @RequestParam(defaultValue = "10") int size,
             @Parameter(description = "Sort field") @RequestParam(defaultValue = "id") String sortBy,
@@ -135,7 +136,7 @@ public class CustomerController {
         log.info("Search customers request received");
         Sort sort = sortDir.equalsIgnoreCase("desc") ? Sort.by(sortBy).descending() : Sort.by(sortBy).ascending();
         Pageable pageable = PageRequest.of(page, size, sort);
-        Page<CustomerResponse> response = customerService.search(fullName, nationalId, email, phoneNumber, status, pageable);
+        Page<CustomerResponse> response = customerService.search(firstName, lastName, nationalId, email, mobile, customerStatus, pageable);
         return ApiResponse.<Page<CustomerResponse>>builder()
                 .success(true)
                 .message("Customers retrieved successfully")

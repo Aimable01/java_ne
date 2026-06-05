@@ -139,13 +139,17 @@ public class MeterService {
         log.info("Meter deleted successfully with ID: {}", id);
     }
 
+    // Map Meter entity to MeterResponse DTO
     private MeterResponse mapToResponse(Meter meter) {
+        Customer customer = meter.getCustomer();
+        String customerName = customer.getFirstName() + " " + customer.getLastName();
+        
         return MeterResponse.builder()
                 .id(meter.getId())
                 .meterNumber(meter.getMeterNumber())
                 .meterType(meter.getMeterType())
-                .customerId(meter.getCustomer().getId())
-                .customerName(meter.getCustomer().getFullName())
+                .customerId(customer.getId())
+                .customerName(customerName)
                 .installationDate(meter.getInstallationDate())
                 .status(meter.getStatus())
                 .createdAt(meter.getCreatedAt())
