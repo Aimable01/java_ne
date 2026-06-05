@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.Random;
@@ -24,19 +25,16 @@ public class OtpService {
     @Value("${otp.length:6}")
     private int otpLength;
 
+    @Transactional
     public String generateAndSendOtp(String email) {
         log.info("Generating OTP for email: {}", email);
 
-        // Delete any existing unused OTP for this email
         otpRepository.deleteByEmail(email);
 
-        // Generate random OTP
         String otpCode = generateRandomOtp();
 
-        // Calculate expiration time
         LocalDateTime expiresAt = LocalDateTime.now().plusMinutes(otpExpirationMinutes);
 
-        // Save OTP
         Otp otp = Otp.builder()
                 .email(email)
                 .code(otpCode)
@@ -46,18 +44,13 @@ public class OtpService {
 
         otpRepository.save(otp);
 
-        // Send OTP via email
-        try {
-            emailService.sendEmail(
-                    email,
-                    "Your OTP Code",
-                    "Your OTP code is: " + otpCode + "\n\nThis code will expire in " + otpExpirationMinutes + " minutes."
-            );
-            log.info("OTP sent successfully to email: {}", email);
-        } catch (Exception e) {
-            log.error("Failed to send OTP to email: {}", email, e);
-            throw new RuntimeException("Failed to send OTP. Please try again.");
-        }
+        emailService.sendEmail(
+                email,
+                "Your OTP Code",
+                "Your OTP code is: " + otpCode +
+                        "\n\nThis code will expire in " +
+                        otpExpirationMinutes + " minutes."
+        );
 
         return otpCode;
     }
