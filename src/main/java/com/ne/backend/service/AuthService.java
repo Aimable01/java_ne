@@ -40,7 +40,7 @@ public class AuthService {
         long count = userRepository.count() + 1;
 
         User user = User.builder()
-                .code(String.format("EMP-%03d", count))
+                .code(String.format("USR-%03d", count))
                 .firstName(request.getFirstName())
                 .lastName(request.getLastName())
                 .email(request.getEmail())

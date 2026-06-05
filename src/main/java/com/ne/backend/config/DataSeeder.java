@@ -33,7 +33,7 @@ public class DataSeeder implements CommandLineRunner {
         log.info("Starting data seeding...");
 
         User admin = User.builder()
-                .code("EMP-001")
+                .code("USR-001")
                 .firstName("System")
                 .lastName("Admin")
                 .email("aimable.kwizera14@gmail.com")
@@ -44,7 +44,7 @@ public class DataSeeder implements CommandLineRunner {
                 .build();
 
         User operator = User.builder()
-                .code("EMP-002")
+                .code("USR-002")
                 .firstName("System")
                 .lastName("Operator")
                 .email("operator@app.com")
@@ -55,7 +55,7 @@ public class DataSeeder implements CommandLineRunner {
                 .build();
 
         User finance = User.builder()
-                .code("EMP-003")
+                .code("USR-003")
                 .firstName("System")
                 .lastName("Finance")
                 .email("finance@app.com")
@@ -66,7 +66,7 @@ public class DataSeeder implements CommandLineRunner {
                 .build();
 
         User customer = User.builder()
-                .code("EMP-004")
+                .code("USR-004")
                 .firstName("Normal")
                 .lastName("Customer")
                 .email("customer@app.com")

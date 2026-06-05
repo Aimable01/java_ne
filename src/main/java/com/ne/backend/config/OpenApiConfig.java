@@ -3,15 +3,18 @@ package com.ne.backend.config;
 import io.swagger.v3.oas.models.*;
 import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.security.*;
+import io.swagger.v3.oas.models.tags.Tag;
+import org.springdoc.core.models.GroupedOpenApi;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import java.util.Comparator;
 
 @Configuration
 public class OpenApiConfig {
 
     @Bean
     public OpenAPI customOpenAPI() {
-
         final String securitySchemeName = "bearerAuth";
 
         return new OpenAPI()
@@ -33,5 +36,19 @@ public class OpenApiConfig {
                                                 .bearerFormat("JWT")
                                 )
                 );
+    }
+
+    // sort tags alphabetically
+    @Bean
+    public GroupedOpenApi publicApi() {
+        return GroupedOpenApi.builder()
+                .group("public")
+                .pathsToMatch("/api/**")
+                .addOpenApiCustomizer(openApi -> {
+                    if (openApi.getTags() != null) {
+                        openApi.getTags().sort(Comparator.comparing(Tag::getName));
+                    }
+                })
+                .build();
     }
 }
