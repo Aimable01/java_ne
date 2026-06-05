@@ -11,8 +11,10 @@ import java.util.Set;
 /**
  * Base User entity containing common user information
  * Extended by Customer for utility billing system
+ * Uses TABLE_PER_CLASS inheritance strategy - each subclass has its own table
  */
 @Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Table(name = "users")
 @Getter
 @Setter
@@ -22,7 +24,7 @@ import java.util.Set;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     // Unique user code for identification

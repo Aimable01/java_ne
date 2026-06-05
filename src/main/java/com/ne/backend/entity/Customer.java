@@ -15,9 +15,9 @@ import java.time.LocalDateTime;
 /**
  * Customer entity extending User
  * Contains customer-specific information for utility billing
+ * Uses TABLE_PER_CLASS inheritance strategy - each class has its own table
  */
 @Entity
-@Table(name = "customers")
 @Data
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
