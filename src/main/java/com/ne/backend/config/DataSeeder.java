@@ -43,32 +43,44 @@ public class DataSeeder implements CommandLineRunner {
                 .roles(Set.of(Role.ROLE_ADMIN))
                 .build();
 
-        User manager = User.builder()
+        User operator = User.builder()
                 .code("EMP-002")
                 .firstName("System")
-                .lastName("Manager")
-                .email("manager@app.com")
-                .password(passwordEncoder.encode("Manager@1234"))
+                .lastName("Operator")
+                .email("operator@app.com")
+                .password(passwordEncoder.encode("Operator@1234"))
                 .mobile("0700000002")
                 .status(UserStatus.ACTIVE)
-                .roles(Set.of(Role.ROLE_MANAGER))
+                .roles(Set.of(Role.ROLE_OPERATOR))
                 .build();
 
-        User user = User.builder()
+        User finance = User.builder()
                 .code("EMP-003")
-                .firstName("Normal")
-                .lastName("User")
-                .email("user@app.com")
-                .password(passwordEncoder.encode("User@1234"))
+                .firstName("System")
+                .lastName("Finance")
+                .email("finance@app.com")
+                .password(passwordEncoder.encode("Finance@1234"))
                 .mobile("0700000003")
                 .status(UserStatus.ACTIVE)
-                .roles(Set.of(Role.ROLE_USER))
+                .roles(Set.of(Role.ROLE_FINANCE))
+                .build();
+
+        User customer = User.builder()
+                .code("EMP-004")
+                .firstName("Normal")
+                .lastName("Customer")
+                .email("customer@app.com")
+                .password(passwordEncoder.encode("Customer@1234"))
+                .mobile("0700000004")
+                .status(UserStatus.ACTIVE)
+                .roles(Set.of(Role.ROLE_CUSTOMER))
                 .build();
 
         userRepository.save(admin);
-        userRepository.save(manager);
-        userRepository.save(user);
+        userRepository.save(operator);
+        userRepository.save(finance);
+        userRepository.save(customer);
 
-        log.info("Data seeding completed successfully. Created 3 default users.");
+        log.info("Data seeding completed successfully. Created 4 default users.");
     }
 }
