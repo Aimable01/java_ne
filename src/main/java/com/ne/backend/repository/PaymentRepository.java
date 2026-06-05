@@ -1,6 +1,7 @@
 package com.ne.backend.repository;
 
 import com.ne.backend.entity.Bill;
+import com.ne.backend.entity.Customer;
 import com.ne.backend.entity.Payment;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -21,6 +22,9 @@ public interface PaymentRepository extends JpaRepository<Payment, Long> {
     boolean existsByReferenceNumber(String referenceNumber);
 
     List<Payment> findByBill(Bill bill);
+
+    @Query("SELECT p FROM Payment p WHERE p.bill.customer.id = :customerId")
+    List<Payment> findByCustomer(@Param("customerId") Long customerId);
 
     @Query("SELECT p FROM Payment p WHERE " +
            "(:billId IS NULL OR p.bill.id = :billId) AND " +

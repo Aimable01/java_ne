@@ -185,6 +185,27 @@ public class PaymentController {
                 .build();
     }
 
+    @Operation(summary = "Get my payments", description = "Retrieves all payments for the authenticated customer using JWT")
+    @ApiResponses(value = {
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "200", description = "Payments retrieved successfully"),
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "401", description = "Unauthorized"),
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "403", description = "Access denied")
+    })
+    @PreAuthorize("hasRole('CUSTOMER')")
+    @GetMapping("/my-payments")
+    public ApiResponse<List<PaymentResponse>> getMyPayments(Authentication authentication) {
+        log.info("Get my payments request received");
+        
+        Long customerId = (Long) authentication.getPrincipal();
+        List<PaymentResponse> response = paymentService.getByCustomer(customerId);
+        
+        return ApiResponse.<List<PaymentResponse>>builder()
+                .success(true)
+                .message("Your payments retrieved successfully")
+                .data(response)
+                .build();
+    }
+
     @Operation(summary = "Delete payment", description = "Deletes a payment by its ID")
     @ApiResponses(value = {
             @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "200", description = "Payment deleted successfully"),

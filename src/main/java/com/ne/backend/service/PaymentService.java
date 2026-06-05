@@ -148,6 +148,13 @@ public class PaymentService {
                 .toList();
     }
 
+    public List<PaymentResponse> getByCustomer(Long customerId) {
+        log.info("Fetching payments for customer: {}", customerId);
+        return paymentRepository.findByCustomer(customerId).stream()
+                .map(this::mapToResponse)
+                .toList();
+    }
+
     public void delete(Long id) {
         log.info("Deleting payment with ID: {}", id);
         Payment payment = paymentRepository.findById(id)

@@ -13360,3 +13360,904 @@ Caused by: java.lang.ClassNotFoundException: com.ne.backend.enums.BillStatus
 2026-06-05 13:15:55,370 [restartedMain] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
 2026-06-05 13:15:55,370 [restartedMain] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
 2026-06-05 13:15:55,371 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2026-06-05 13:40:05,079 [SpringApplicationShutdownHook] INFO  o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-06-05 13:40:05,089 [tomcat-shutdown] INFO  o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-06-05 13:40:05,092 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-05 13:40:05,092 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-17 - Shutdown initiated...
+2026-06-05 13:40:05,093 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-17 - Shutdown completed.
+2026-06-05 13:40:07,045 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 9.0.1.Final
+2026-06-05 13:40:07,076 [restartedMain] INFO  com.ne.backend.BackendApplication - Starting BackendApplication using Java 21.0.6 with PID 10500 (C:\Users\admin\Documents\programming\prep\java_ne\target\classes started by admin in C:\Users\admin\Documents\programming\prep\java_ne)
+2026-06-05 13:40:07,077 [restartedMain] DEBUG com.ne.backend.BackendApplication - Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-06-05 13:40:07,077 [restartedMain] INFO  com.ne.backend.BackendApplication - No active profile set, falling back to 1 default profile: "default"
+2026-06-05 13:40:07,107 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-06-05 13:40:07,107 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-06-05 13:40:07,678 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-05 13:40:07,718 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 34 ms. Found 10 JPA repository interfaces.
+2026-06-05 13:40:08,086 [restartedMain] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-06-05 13:40:08,093 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-06-05 13:40:08,095 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-06-05 13:40:08,095 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-06-05 13:40:08,122 [restartedMain] INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 1013 ms
+2026-06-05 13:40:08,260 [restartedMain] INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-06-05 13:40:08,331 [restartedMain] INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.12.Final
+2026-06-05 13:40:08,796 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-05 13:40:08,830 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-06-05 13:40:08,933 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@46c6171
+2026-06-05 13:40:08,936 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-06-05 13:40:09,007 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/mydb_java]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.4
+	Default catalog/schema: mydb_java/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-06-05 13:40:09,944 [restartedMain] INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-05 13:40:10,000 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-05 13:40:10,041 [restartedMain] INFO  o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-06-05 13:40:10,729 [restartedMain] DEBUG com.ne.backend.config.JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
+2026-06-05 13:40:10,767 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-06-05 13:40:10,768 [restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-06-05 13:40:11,297 [restartedMain] WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-05 13:40:11,427 [restartedMain] DEBUG o.s.s.web.DefaultSecurityFilterChain - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, JwtAuthFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2026-06-05 13:40:11,739 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-06-05 13:40:11,749 [restartedMain] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-06-05 13:40:11,755 [restartedMain] INFO  com.ne.backend.BackendApplication - Started BackendApplication in 5.096 seconds (process running for 5.829)
+2026-06-05 13:40:11,756 [restartedMain] INFO  com.ne.backend.config.DataSeeder - Checking if data seeding is required...
+2026-06-05 13:40:11,795 [restartedMain] DEBUG org.hibernate.SQL - 
+    select
+        count(*) 
+    from
+        (select
+            id,
+            code,
+            created_at,
+            email,
+            first_name,
+            last_name,
+            mobile,
+            password,
+            status,
+            cast(null as varchar(255)) as address,
+            cast(null as varchar(255)) as customer_status,
+            cast(null as varchar) as national_id,
+            cast(null as numeric(12, 2)) as surplus,
+            cast(null as timestamp(6)) as updated_at,
+            0 as clazz_ 
+        from
+            users 
+        union
+        all select
+            id,
+            code,
+            created_at,
+            email,
+            first_name,
+            last_name,
+            mobile,
+            password,
+            status,
+            address,
+            customer_status,
+            national_id,
+            surplus,
+            updated_at,
+            1 as clazz_ 
+        from
+            customer
+    ) u1_0
+2026-06-05 13:40:11,805 [restartedMain] INFO  com.ne.backend.config.DataSeeder - Database already contains data. Skipping seeding.
+2026-06-05 13:40:11,806 [restartedMain] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-06-05 13:40:11,806 [restartedMain] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-06-05 13:41:07,084 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-06-05 13:41:07,084 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-06-05 13:41:07,085 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2026-06-05 13:41:07,093 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing POST /api/auth/login
+2026-06-05 13:41:07,100 [http-nio-8080-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-06-05 13:41:07,101 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured POST /api/auth/login
+2026-06-05 13:41:07,212 [http-nio-8080-exec-1] INFO  c.n.b.controller.AuthController - Login initiation request received for email: dibasow633@aspensif.com
+2026-06-05 13:41:07,213 [http-nio-8080-exec-1] INFO  com.ne.backend.service.AuthService - Initiating login for email: dibasow633@aspensif.com
+2026-06-05 13:41:07,336 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.clazz_,
+        u1_0.code,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.mobile,
+        u1_0.password,
+        u1_0.status,
+        u1_0.address,
+        u1_0.customer_status,
+        u1_0.national_id,
+        u1_0.surplus,
+        u1_0.updated_at 
+    from
+        (select
+            id,
+            code,
+            created_at,
+            email,
+            first_name,
+            last_name,
+            mobile,
+            password,
+            status,
+            cast(null as varchar(255)) as address,
+            cast(null as varchar(255)) as customer_status,
+            cast(null as varchar) as national_id,
+            cast(null as numeric(12, 2)) as surplus,
+            cast(null as timestamp(6)) as updated_at,
+            0 as clazz_ 
+        from
+            users 
+        union
+        all select
+            id,
+            code,
+            created_at,
+            email,
+            first_name,
+            last_name,
+            mobile,
+            password,
+            status,
+            address,
+            customer_status,
+            national_id,
+            surplus,
+            updated_at,
+            1 as clazz_ 
+        from
+            customer
+    ) u1_0 
+where
+    u1_0.email=?
+2026-06-05 13:41:07,364 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        r1_0.user_id,
+        r1_0.roles 
+    from
+        user_roles r1_0 
+    where
+        r1_0.user_id=?
+2026-06-05 13:41:07,443 [http-nio-8080-exec-1] DEBUG o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+2026-06-05 13:41:07,445 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.clazz_,
+        u1_0.code,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.mobile,
+        u1_0.password,
+        u1_0.status,
+        u1_0.address,
+        u1_0.customer_status,
+        u1_0.national_id,
+        u1_0.surplus,
+        u1_0.updated_at 
+    from
+        (select
+            id,
+            code,
+            created_at,
+            email,
+            first_name,
+            last_name,
+            mobile,
+            password,
+            status,
+            cast(null as varchar(255)) as address,
+            cast(null as varchar(255)) as customer_status,
+            cast(null as varchar) as national_id,
+            cast(null as numeric(12, 2)) as surplus,
+            cast(null as timestamp(6)) as updated_at,
+            0 as clazz_ 
+        from
+            users 
+        union
+        all select
+            id,
+            code,
+            created_at,
+            email,
+            first_name,
+            last_name,
+            mobile,
+            password,
+            status,
+            address,
+            customer_status,
+            national_id,
+            surplus,
+            updated_at,
+            1 as clazz_ 
+        from
+            customer
+    ) u1_0 
+where
+    u1_0.email=?
+2026-06-05 13:41:07,446 [http-nio-8080-exec-1] INFO  com.ne.backend.service.OtpService - Generating OTP for email: dibasow633@aspensif.com
+2026-06-05 13:41:07,457 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        o1_0.id,
+        o1_0.code,
+        o1_0.created_at,
+        o1_0.email,
+        o1_0.expires_at,
+        o1_0.used 
+    from
+        otps o1_0 
+    where
+        o1_0.email=?
+2026-06-05 13:41:07,476 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        otps
+        (code, created_at, email, expires_at, used) 
+    values
+        (?, ?, ?, ?, ?)
+2026-06-05 13:41:07,484 [http-nio-8080-exec-1] INFO  com.ne.backend.service.EmailService - Sending email to: dibasow633@aspensif.com with subject: Your OTP Code
+2026-06-05 13:41:14,558 [http-nio-8080-exec-1] INFO  com.ne.backend.service.EmailService - Email sent successfully to: dibasow633@aspensif.com
+2026-06-05 13:41:14,562 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    delete 
+    from
+        otps 
+    where
+        id=?
+2026-06-05 13:41:14,565 [http-nio-8080-exec-1] INFO  com.ne.backend.service.AuthService - OTP sent to email: dibasow633@aspensif.com
+2026-06-05 13:42:02,902 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing POST /api/auth/verify-otp
+2026-06-05 13:42:02,902 [http-nio-8080-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-06-05 13:42:02,902 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured POST /api/auth/verify-otp
+2026-06-05 13:42:02,907 [http-nio-8080-exec-7] INFO  c.n.b.controller.AuthController - OTP verification request received for email: dibasow633@aspensif.com
+2026-06-05 13:42:02,907 [http-nio-8080-exec-7] INFO  com.ne.backend.service.AuthService - Verifying OTP for email: dibasow633@aspensif.com
+2026-06-05 13:42:02,907 [http-nio-8080-exec-7] INFO  com.ne.backend.service.OtpService - Validating OTP for email: dibasow633@aspensif.com
+2026-06-05 13:42:02,916 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        o1_0.id,
+        o1_0.code,
+        o1_0.created_at,
+        o1_0.email,
+        o1_0.expires_at,
+        o1_0.used 
+    from
+        otps o1_0 
+    where
+        o1_0.email=? 
+        and o1_0.code=? 
+        and o1_0.used=false
+2026-06-05 13:42:02,926 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    update
+        otps 
+    set
+        code=?,
+        created_at=?,
+        email=?,
+        expires_at=?,
+        used=? 
+    where
+        id=?
+2026-06-05 13:42:02,936 [http-nio-8080-exec-7] INFO  com.ne.backend.service.OtpService - OTP validated successfully for email: dibasow633@aspensif.com
+2026-06-05 13:42:02,937 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.clazz_,
+        u1_0.code,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.mobile,
+        u1_0.password,
+        u1_0.status,
+        u1_0.address,
+        u1_0.customer_status,
+        u1_0.national_id,
+        u1_0.surplus,
+        u1_0.updated_at 
+    from
+        (select
+            id,
+            code,
+            created_at,
+            email,
+            first_name,
+            last_name,
+            mobile,
+            password,
+            status,
+            cast(null as varchar(255)) as address,
+            cast(null as varchar(255)) as customer_status,
+            cast(null as varchar) as national_id,
+            cast(null as numeric(12, 2)) as surplus,
+            cast(null as timestamp(6)) as updated_at,
+            0 as clazz_ 
+        from
+            users 
+        union
+        all select
+            id,
+            code,
+            created_at,
+            email,
+            first_name,
+            last_name,
+            mobile,
+            password,
+            status,
+            address,
+            customer_status,
+            national_id,
+            surplus,
+            updated_at,
+            1 as clazz_ 
+        from
+            customer
+    ) u1_0 
+where
+    u1_0.email=?
+2026-06-05 13:42:02,939 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        r1_0.user_id,
+        r1_0.roles 
+    from
+        user_roles r1_0 
+    where
+        r1_0.user_id=?
+2026-06-05 13:42:03,038 [http-nio-8080-exec-7] INFO  com.ne.backend.service.AuthService - Login successful for email: dibasow633@aspensif.com
+2026-06-05 13:42:25,690 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/bills?page=0&size=10&sortBy=id&sortDir=desc
+2026-06-05 13:42:25,802 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.clazz_,
+        u1_0.code,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.mobile,
+        u1_0.password,
+        u1_0.status,
+        u1_0.address,
+        u1_0.customer_status,
+        u1_0.national_id,
+        u1_0.surplus,
+        u1_0.updated_at 
+    from
+        (select
+            id,
+            code,
+            created_at,
+            email,
+            first_name,
+            last_name,
+            mobile,
+            password,
+            status,
+            cast(null as varchar(255)) as address,
+            cast(null as varchar(255)) as customer_status,
+            cast(null as varchar) as national_id,
+            cast(null as numeric(12, 2)) as surplus,
+            cast(null as timestamp(6)) as updated_at,
+            0 as clazz_ 
+        from
+            users 
+        union
+        all select
+            id,
+            code,
+            created_at,
+            email,
+            first_name,
+            last_name,
+            mobile,
+            password,
+            status,
+            address,
+            customer_status,
+            national_id,
+            surplus,
+            updated_at,
+            1 as clazz_ 
+        from
+            customer
+    ) u1_0 
+where
+    u1_0.email=?
+2026-06-05 13:42:25,803 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        r1_0.user_id,
+        r1_0.roles 
+    from
+        user_roles r1_0 
+    where
+        r1_0.user_id=?
+2026-06-05 13:42:25,805 [http-nio-8080-exec-4] DEBUG com.ne.backend.config.JwtAuthFilter - User authenticated successfully: dibasow633@aspensif.com
+2026-06-05 13:42:25,805 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/bills?page=0&size=10&sortBy=id&sortDir=desc
+2026-06-05 13:42:25,812 [http-nio-8080-exec-4] DEBUG o.s.s.a.m.AuthorizationManagerBeforeMethodInterceptor - Authorizing method invocation ReflectiveMethodInvocation: public com.ne.backend.dto.ApiResponse com.ne.backend.controller.BillController.getAll(int,int,java.lang.String,java.lang.String); target is of class [com.ne.backend.controller.BillController]
+2026-06-05 13:42:25,821 [http-nio-8080-exec-4] DEBUG o.s.s.a.m.AuthorizationManagerBeforeMethodInterceptor - Failed to authorize ReflectiveMethodInvocation: public com.ne.backend.dto.ApiResponse com.ne.backend.controller.BillController.getAll(int,int,java.lang.String,java.lang.String); target is of class [com.ne.backend.controller.BillController] with authorization manager org.springframework.security.authorization.method.PreAuthorizeAuthorizationManager@384c9826 and result ExpressionAuthorizationDecision [granted=false, expressionAttribute=hasAnyRole('ADMIN', 'OPERATOR', 'FINANCE')]
+2026-06-05 13:42:25,823 [http-nio-8080-exec-4] WARN  c.n.b.e.GlobalExceptionHandler - Access denied: Access Denied
+2026-06-05 13:42:25,826 [http-nio-8080-exec-4] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.security.authorization.AuthorizationDeniedException: Access Denied]
+2026-06-05 13:42:34,388 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/index.html
+2026-06-05 13:42:34,388 [http-nio-8080-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-06-05 13:42:34,388 [http-nio-8080-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/index.html
+2026-06-05 13:42:34,433 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-ui.css
+2026-06-05 13:42:34,434 [http-nio-8080-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-06-05 13:42:34,434 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-ui.css
+2026-06-05 13:42:34,434 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/index.css
+2026-06-05 13:42:34,434 [http-nio-8080-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-06-05 13:42:34,434 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-ui-bundle.js
+2026-06-05 13:42:34,434 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-ui-standalone-preset.js
+2026-06-05 13:42:34,434 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/index.css
+2026-06-05 13:42:34,434 [http-nio-8080-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-06-05 13:42:34,434 [http-nio-8080-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-06-05 13:42:34,434 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-ui-bundle.js
+2026-06-05 13:42:34,434 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-ui-standalone-preset.js
+2026-06-05 13:42:34,435 [http-nio-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-initializer.js
+2026-06-05 13:42:34,435 [http-nio-8080-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-06-05 13:42:34,435 [http-nio-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-initializer.js
+2026-06-05 13:42:34,540 [http-nio-8080-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing GET /v3/api-docs/swagger-config
+2026-06-05 13:42:34,541 [http-nio-8080-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-06-05 13:42:34,541 [http-nio-8080-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured GET /v3/api-docs/swagger-config
+2026-06-05 13:42:34,542 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/favicon-32x32.png
+2026-06-05 13:42:34,543 [http-nio-8080-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-06-05 13:42:34,543 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/favicon-32x32.png
+2026-06-05 13:42:34,567 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /v3/api-docs/public
+2026-06-05 13:42:34,567 [http-nio-8080-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-06-05 13:42:34,567 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /v3/api-docs/public
+2026-06-05 13:42:35,262 [http-nio-8080-exec-7] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 690 ms
+2026-06-05 13:46:35,496 [http-nio-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/bills/customer/152
+2026-06-05 13:46:35,498 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.clazz_,
+        u1_0.code,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.mobile,
+        u1_0.password,
+        u1_0.status,
+        u1_0.address,
+        u1_0.customer_status,
+        u1_0.national_id,
+        u1_0.surplus,
+        u1_0.updated_at 
+    from
+        (select
+            id,
+            code,
+            created_at,
+            email,
+            first_name,
+            last_name,
+            mobile,
+            password,
+            status,
+            cast(null as varchar(255)) as address,
+            cast(null as varchar(255)) as customer_status,
+            cast(null as varchar) as national_id,
+            cast(null as numeric(12, 2)) as surplus,
+            cast(null as timestamp(6)) as updated_at,
+            0 as clazz_ 
+        from
+            users 
+        union
+        all select
+            id,
+            code,
+            created_at,
+            email,
+            first_name,
+            last_name,
+            mobile,
+            password,
+            status,
+            address,
+            customer_status,
+            national_id,
+            surplus,
+            updated_at,
+            1 as clazz_ 
+        from
+            customer
+    ) u1_0 
+where
+    u1_0.email=?
+2026-06-05 13:46:35,500 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        r1_0.user_id,
+        r1_0.roles 
+    from
+        user_roles r1_0 
+    where
+        r1_0.user_id=?
+2026-06-05 13:46:35,501 [http-nio-8080-exec-10] DEBUG com.ne.backend.config.JwtAuthFilter - User authenticated successfully: dibasow633@aspensif.com
+2026-06-05 13:46:35,501 [http-nio-8080-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/bills/customer/152
+2026-06-05 13:46:35,503 [http-nio-8080-exec-10] DEBUG o.s.s.a.m.AuthorizationManagerBeforeMethodInterceptor - Authorizing method invocation ReflectiveMethodInvocation: public com.ne.backend.dto.ApiResponse com.ne.backend.controller.BillController.getByCustomer(java.lang.Long,org.springframework.security.core.Authentication); target is of class [com.ne.backend.controller.BillController]
+2026-06-05 13:46:35,503 [http-nio-8080-exec-10] DEBUG o.s.s.a.m.AuthorizationManagerBeforeMethodInterceptor - Failed to authorize ReflectiveMethodInvocation: public com.ne.backend.dto.ApiResponse com.ne.backend.controller.BillController.getByCustomer(java.lang.Long,org.springframework.security.core.Authentication); target is of class [com.ne.backend.controller.BillController] with authorization manager org.springframework.security.authorization.method.PreAuthorizeAuthorizationManager@384c9826 and result ExpressionAuthorizationDecision [granted=false, expressionAttribute=hasAnyRole('ADMIN', 'OPERATOR', 'FINANCE', 'CUSTOMER')]
+2026-06-05 13:46:35,504 [http-nio-8080-exec-10] WARN  c.n.b.e.GlobalExceptionHandler - Access denied: Access Denied
+2026-06-05 13:46:35,506 [http-nio-8080-exec-10] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.security.authorization.AuthorizationDeniedException: Access Denied]
+2026-06-05 13:50:13,902 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2026-06-05 13:50:13,907 [Thread-1] INFO  o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-06-05 13:50:13,908 [tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2026-06-05 13:50:13,924 [tomcat-shutdown] INFO  o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-06-05 13:50:13,924 [Thread-1] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2026-06-05 13:50:13,934 [Thread-1] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-05 13:50:13,938 [Thread-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-06-05 13:50:13,943 [Thread-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-06-05 13:50:14,073 [restartedMain] INFO  com.ne.backend.BackendApplication - Starting BackendApplication using Java 21.0.6 with PID 10500 (C:\Users\admin\Documents\programming\prep\java_ne\target\classes started by admin in C:\Users\admin\Documents\programming\prep\java_ne)
+2026-06-05 13:50:14,073 [restartedMain] DEBUG com.ne.backend.BackendApplication - Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-06-05 13:50:14,073 [restartedMain] INFO  com.ne.backend.BackendApplication - No active profile set, falling back to 1 default profile: "default"
+2026-06-05 13:50:14,379 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-05 13:50:14,412 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 31 ms. Found 10 JPA repository interfaces.
+2026-06-05 13:50:14,567 [restartedMain] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-06-05 13:50:14,568 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-06-05 13:50:14,568 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-06-05 13:50:14,568 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-06-05 13:50:14,588 [restartedMain] INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 512 ms
+2026-06-05 13:50:14,663 [restartedMain] INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-06-05 13:50:14,703 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-05 13:50:14,704 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2026-06-05 13:50:14,738 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@15fb0d61
+2026-06-05 13:50:14,738 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2026-06-05 13:50:14,750 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/mydb_java]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.4
+	Default catalog/schema: mydb_java/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-06-05 13:50:15,072 [restartedMain] INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-05 13:50:15,113 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-05 13:50:15,205 [restartedMain] DEBUG com.ne.backend.config.JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
+2026-06-05 13:50:15,243 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-06-05 13:50:15,243 [restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-06-05 13:50:15,693 [restartedMain] WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-05 13:50:15,890 [restartedMain] DEBUG o.s.s.web.DefaultSecurityFilterChain - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, JwtAuthFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2026-06-05 13:50:16,241 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-06-05 13:50:16,244 [restartedMain] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-06-05 13:50:16,248 [restartedMain] INFO  com.ne.backend.BackendApplication - Started BackendApplication in 2.231 seconds (process running for 610.322)
+2026-06-05 13:50:16,249 [restartedMain] INFO  com.ne.backend.config.DataSeeder - Checking if data seeding is required...
+2026-06-05 13:50:16,253 [restartedMain] DEBUG org.hibernate.SQL - 
+    select
+        count(*) 
+    from
+        (select
+            id,
+            code,
+            created_at,
+            email,
+            first_name,
+            last_name,
+            mobile,
+            password,
+            status,
+            cast(null as varchar(255)) as address,
+            cast(null as varchar(255)) as customer_status,
+            cast(null as varchar) as national_id,
+            cast(null as numeric(12, 2)) as surplus,
+            cast(null as timestamp(6)) as updated_at,
+            0 as clazz_ 
+        from
+            users 
+        union
+        all select
+            id,
+            code,
+            created_at,
+            email,
+            first_name,
+            last_name,
+            mobile,
+            password,
+            status,
+            address,
+            customer_status,
+            national_id,
+            surplus,
+            updated_at,
+            1 as clazz_ 
+        from
+            customer
+    ) u1_0
+2026-06-05 13:50:16,259 [restartedMain] INFO  com.ne.backend.config.DataSeeder - Database already contains data. Skipping seeding.
+2026-06-05 13:50:16,259 [restartedMain] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-06-05 13:50:16,260 [restartedMain] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-06-05 13:50:16,261 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2026-06-05 13:50:19,686 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2026-06-05 13:50:19,687 [Thread-7] INFO  o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-06-05 13:50:19,687 [tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2026-06-05 13:50:19,700 [tomcat-shutdown] INFO  o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-06-05 13:50:19,701 [Thread-7] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2026-06-05 13:50:19,704 [Thread-7] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-05 13:50:19,704 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2026-06-05 13:50:19,706 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2026-06-05 13:50:19,795 [restartedMain] INFO  com.ne.backend.BackendApplication - Starting BackendApplication using Java 21.0.6 with PID 10500 (C:\Users\admin\Documents\programming\prep\java_ne\target\classes started by admin in C:\Users\admin\Documents\programming\prep\java_ne)
+2026-06-05 13:50:19,795 [restartedMain] DEBUG com.ne.backend.BackendApplication - Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-06-05 13:50:19,795 [restartedMain] INFO  com.ne.backend.BackendApplication - No active profile set, falling back to 1 default profile: "default"
+2026-06-05 13:50:19,995 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-05 13:50:20,021 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 24 ms. Found 10 JPA repository interfaces.
+2026-06-05 13:50:20,127 [restartedMain] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-06-05 13:50:20,128 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-06-05 13:50:20,128 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-06-05 13:50:20,128 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-06-05 13:50:20,181 [restartedMain] INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 384 ms
+2026-06-05 13:50:20,222 [restartedMain] INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-06-05 13:50:20,254 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-05 13:50:20,254 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Starting...
+2026-06-05 13:50:20,291 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Added connection org.postgresql.jdbc.PgConnection@37551274
+2026-06-05 13:50:20,291 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Start completed.
+2026-06-05 13:50:20,304 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/mydb_java]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.4
+	Default catalog/schema: mydb_java/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-06-05 13:50:20,502 [restartedMain] INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-05 13:50:20,538 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-05 13:50:20,637 [restartedMain] DEBUG com.ne.backend.config.JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
+2026-06-05 13:50:20,668 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-06-05 13:50:20,668 [restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-06-05 13:50:21,004 [restartedMain] WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-05 13:50:21,128 [restartedMain] DEBUG o.s.s.web.DefaultSecurityFilterChain - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, JwtAuthFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2026-06-05 13:50:21,348 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-06-05 13:50:21,351 [restartedMain] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-06-05 13:50:21,353 [restartedMain] INFO  com.ne.backend.BackendApplication - Started BackendApplication in 1.587 seconds (process running for 615.427)
+2026-06-05 13:50:21,353 [restartedMain] INFO  com.ne.backend.config.DataSeeder - Checking if data seeding is required...
+2026-06-05 13:50:21,356 [restartedMain] DEBUG org.hibernate.SQL - 
+    select
+        count(*) 
+    from
+        (select
+            id,
+            code,
+            created_at,
+            email,
+            first_name,
+            last_name,
+            mobile,
+            password,
+            status,
+            cast(null as varchar(255)) as address,
+            cast(null as varchar(255)) as customer_status,
+            cast(null as varchar) as national_id,
+            cast(null as numeric(12, 2)) as surplus,
+            cast(null as timestamp(6)) as updated_at,
+            0 as clazz_ 
+        from
+            users 
+        union
+        all select
+            id,
+            code,
+            created_at,
+            email,
+            first_name,
+            last_name,
+            mobile,
+            password,
+            status,
+            address,
+            customer_status,
+            national_id,
+            surplus,
+            updated_at,
+            1 as clazz_ 
+        from
+            customer
+    ) u1_0
+2026-06-05 13:50:21,361 [restartedMain] INFO  com.ne.backend.config.DataSeeder - Database already contains data. Skipping seeding.
+2026-06-05 13:50:21,361 [restartedMain] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-06-05 13:50:21,361 [restartedMain] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-06-05 13:50:21,362 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2026-06-05 13:50:53,506 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 2 class path changes (0 additions, 0 deletions, 2 modifications)
+2026-06-05 13:50:53,507 [Thread-13] INFO  o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-06-05 13:50:53,509 [tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2026-06-05 13:50:53,520 [tomcat-shutdown] INFO  o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-06-05 13:50:53,520 [Thread-13] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2026-06-05 13:50:53,524 [Thread-13] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-05 13:50:53,524 [Thread-13] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown initiated...
+2026-06-05 13:50:53,525 [Thread-13] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown completed.
+2026-06-05 13:50:53,617 [restartedMain] INFO  com.ne.backend.BackendApplication - Starting BackendApplication using Java 21.0.6 with PID 10500 (C:\Users\admin\Documents\programming\prep\java_ne\target\classes started by admin in C:\Users\admin\Documents\programming\prep\java_ne)
+2026-06-05 13:50:53,617 [restartedMain] DEBUG com.ne.backend.BackendApplication - Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-06-05 13:50:53,618 [restartedMain] INFO  com.ne.backend.BackendApplication - No active profile set, falling back to 1 default profile: "default"
+2026-06-05 13:50:53,816 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-05 13:50:53,848 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 30 ms. Found 10 JPA repository interfaces.
+2026-06-05 13:50:53,995 [restartedMain] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-06-05 13:50:53,995 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-06-05 13:50:53,995 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-06-05 13:50:53,996 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-06-05 13:50:54,011 [restartedMain] INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 392 ms
+2026-06-05 13:50:54,066 [restartedMain] INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-06-05 13:50:54,101 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-05 13:50:54,102 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Starting...
+2026-06-05 13:50:54,133 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-4 - Added connection org.postgresql.jdbc.PgConnection@340e1a95
+2026-06-05 13:50:54,134 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Start completed.
+2026-06-05 13:50:54,144 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/mydb_java]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.4
+	Default catalog/schema: mydb_java/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-06-05 13:50:54,332 [restartedMain] INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-05 13:50:54,379 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-05 13:50:54,460 [restartedMain] DEBUG com.ne.backend.config.JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
+2026-06-05 13:50:54,489 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-06-05 13:50:54,489 [restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-06-05 13:50:54,832 [restartedMain] WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-05 13:50:54,994 [restartedMain] DEBUG o.s.s.web.DefaultSecurityFilterChain - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, JwtAuthFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2026-06-05 13:50:55,246 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-06-05 13:50:55,249 [restartedMain] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-06-05 13:50:55,252 [restartedMain] INFO  com.ne.backend.BackendApplication - Started BackendApplication in 1.662 seconds (process running for 649.326)
+2026-06-05 13:50:55,252 [restartedMain] INFO  com.ne.backend.config.DataSeeder - Checking if data seeding is required...
+2026-06-05 13:50:55,255 [restartedMain] DEBUG org.hibernate.SQL - 
+    select
+        count(*) 
+    from
+        (select
+            id,
+            code,
+            created_at,
+            email,
+            first_name,
+            last_name,
+            mobile,
+            password,
+            status,
+            cast(null as varchar(255)) as address,
+            cast(null as varchar(255)) as customer_status,
+            cast(null as varchar) as national_id,
+            cast(null as numeric(12, 2)) as surplus,
+            cast(null as timestamp(6)) as updated_at,
+            0 as clazz_ 
+        from
+            users 
+        union
+        all select
+            id,
+            code,
+            created_at,
+            email,
+            first_name,
+            last_name,
+            mobile,
+            password,
+            status,
+            address,
+            customer_status,
+            national_id,
+            surplus,
+            updated_at,
+            1 as clazz_ 
+        from
+            customer
+    ) u1_0
+2026-06-05 13:50:55,258 [restartedMain] INFO  com.ne.backend.config.DataSeeder - Database already contains data. Skipping seeding.
+2026-06-05 13:50:55,258 [restartedMain] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-06-05 13:50:55,258 [restartedMain] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-06-05 13:50:55,258 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2026-06-05 13:50:56,659 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 2 class path changes (0 additions, 0 deletions, 2 modifications)
+2026-06-05 13:50:56,661 [Thread-19] INFO  o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-06-05 13:50:56,662 [tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2026-06-05 13:50:56,676 [tomcat-shutdown] INFO  o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-06-05 13:50:56,677 [Thread-19] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2026-06-05 13:50:56,680 [Thread-19] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-05 13:50:56,680 [Thread-19] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown initiated...
+2026-06-05 13:50:56,682 [Thread-19] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown completed.
+2026-06-05 13:50:56,768 [restartedMain] INFO  com.ne.backend.BackendApplication - Starting BackendApplication using Java 21.0.6 with PID 10500 (C:\Users\admin\Documents\programming\prep\java_ne\target\classes started by admin in C:\Users\admin\Documents\programming\prep\java_ne)
+2026-06-05 13:50:56,768 [restartedMain] DEBUG com.ne.backend.BackendApplication - Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-06-05 13:50:56,768 [restartedMain] INFO  com.ne.backend.BackendApplication - No active profile set, falling back to 1 default profile: "default"
+2026-06-05 13:50:56,987 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-05 13:50:57,018 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 30 ms. Found 10 JPA repository interfaces.
+2026-06-05 13:50:57,124 [restartedMain] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-06-05 13:50:57,125 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-06-05 13:50:57,125 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-06-05 13:50:57,125 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-06-05 13:50:57,139 [restartedMain] INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 370 ms
+2026-06-05 13:50:57,180 [restartedMain] INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-06-05 13:50:57,207 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-05 13:50:57,208 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Starting...
+2026-06-05 13:50:57,243 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-5 - Added connection org.postgresql.jdbc.PgConnection@298b0c4e
+2026-06-05 13:50:57,244 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Start completed.
+2026-06-05 13:50:57,256 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/mydb_java]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.4
+	Default catalog/schema: mydb_java/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-06-05 13:50:57,465 [restartedMain] INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-05 13:50:57,499 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-05 13:50:57,576 [restartedMain] DEBUG com.ne.backend.config.JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
+2026-06-05 13:50:57,613 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-06-05 13:50:57,613 [restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-06-05 13:50:57,933 [restartedMain] WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-05 13:50:58,063 [restartedMain] DEBUG o.s.s.web.DefaultSecurityFilterChain - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, JwtAuthFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2026-06-05 13:50:58,277 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-06-05 13:50:58,279 [restartedMain] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-06-05 13:50:58,281 [restartedMain] INFO  com.ne.backend.BackendApplication - Started BackendApplication in 1.54 seconds (process running for 652.356)
+2026-06-05 13:50:58,282 [restartedMain] INFO  com.ne.backend.config.DataSeeder - Checking if data seeding is required...
+2026-06-05 13:50:58,284 [restartedMain] DEBUG org.hibernate.SQL - 
+    select
+        count(*) 
+    from
+        (select
+            id,
+            code,
+            created_at,
+            email,
+            first_name,
+            last_name,
+            mobile,
+            password,
+            status,
+            cast(null as varchar(255)) as address,
+            cast(null as varchar(255)) as customer_status,
+            cast(null as varchar) as national_id,
+            cast(null as numeric(12, 2)) as surplus,
+            cast(null as timestamp(6)) as updated_at,
+            0 as clazz_ 
+        from
+            users 
+        union
+        all select
+            id,
+            code,
+            created_at,
+            email,
+            first_name,
+            last_name,
+            mobile,
+            password,
+            status,
+            address,
+            customer_status,
+            national_id,
+            surplus,
+            updated_at,
+            1 as clazz_ 
+        from
+            customer
+    ) u1_0
+2026-06-05 13:50:58,288 [restartedMain] INFO  com.ne.backend.config.DataSeeder - Database already contains data. Skipping seeding.
+2026-06-05 13:50:58,288 [restartedMain] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-06-05 13:50:58,288 [restartedMain] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-06-05 13:50:58,289 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2026-06-05 13:51:50,336 [SpringApplicationShutdownHook] INFO  o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-06-05 13:51:50,350 [tomcat-shutdown] INFO  o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-06-05 13:51:50,353 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-05 13:51:50,354 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Shutdown initiated...
+2026-06-05 13:51:50,355 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Shutdown completed.

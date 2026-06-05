@@ -163,6 +163,27 @@ public class BillController {
                 .build();
     }
 
+    @Operation(summary = "Get my bills", description = "Retrieves all bills for the authenticated customer using JWT")
+    @ApiResponses(value = {
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "200", description = "Bills retrieved successfully"),
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "401", description = "Unauthorized"),
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "403", description = "Access denied")
+    })
+    @PreAuthorize("hasRole('CUSTOMER')")
+    @GetMapping("/my-bills")
+    public ApiResponse<List<BillResponse>> getMyBills(Authentication authentication) {
+        log.info("Get my bills request received");
+        
+        Long customerId = (Long) authentication.getPrincipal();
+        List<BillResponse> response = billingService.getByCustomer(customerId);
+        
+        return ApiResponse.<List<BillResponse>>builder()
+                .success(true)
+                .message("Your bills retrieved successfully")
+                .data(response)
+                .build();
+    }
+
     @Operation(summary = "Approve bill", description = "Approves a pending bill")
     @ApiResponses(value = {
             @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "200", description = "Bill approved successfully"),
