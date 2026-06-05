@@ -24,10 +24,9 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class Customer extends User {
 
-    // National ID (16 digits starting with 1)
+    // National ID (16 digits)
     @NotBlank(message = "National ID is required")
-    @Column(nullable = false, unique = true)
-    @Pattern(regexp = "^1[0-9]{15}$", message = "National ID must be 16 digits starting with 1")
+    @Pattern(regexp = "^\\d{16}$", message = "National ID must be a 16 digit string")
     private String nationalId;
 
     // Customer's physical address

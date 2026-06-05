@@ -33,7 +33,7 @@ public class UpdateCustomerRequest {
     private String mobile;
 
     // Customer-specific: National ID
-    @Pattern(regexp = "^1[0-9]{15}$", message = "National ID must be 16 digits starting with 1")
+    @Pattern(regexp = "^\\d{16}$", message = "National ID must be a 16 digit string")
     private String nationalId;
 
     // Customer-specific: Address
