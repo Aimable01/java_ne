@@ -67,7 +67,8 @@ public class BillController {
         
         // Customers can only view their own bills
         if (authentication.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_CUSTOMER"))) {
-            Long customerId = (Long) authentication.getPrincipal();
+            com.ne.backend.entity.User user = (com.ne.backend.entity.User) authentication.getPrincipal();
+            Long customerId = user.getId();
             if (!response.getCustomerId().equals(customerId)) {
                 throw new RuntimeException("Access denied: You can only view your own bills");
             }
@@ -149,7 +150,8 @@ public class BillController {
         
         // Customers can only view their own bills
         if (authentication.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_CUSTOMER"))) {
-            Long authenticatedCustomerId = (Long) authentication.getPrincipal();
+            com.ne.backend.entity.User user = (com.ne.backend.entity.User) authentication.getPrincipal();
+            Long authenticatedCustomerId = user.getId();
             if (!customerId.equals(authenticatedCustomerId)) {
                 throw new RuntimeException("Access denied: You can only view your own bills");
             }
@@ -174,7 +176,8 @@ public class BillController {
     public ApiResponse<List<BillResponse>> getMyBills(Authentication authentication) {
         log.info("Get my bills request received");
         
-        Long customerId = (Long) authentication.getPrincipal();
+        com.ne.backend.entity.User user = (com.ne.backend.entity.User) authentication.getPrincipal();
+        Long customerId = user.getId();
         List<BillResponse> response = billingService.getByCustomer(customerId);
         
         return ApiResponse.<List<BillResponse>>builder()

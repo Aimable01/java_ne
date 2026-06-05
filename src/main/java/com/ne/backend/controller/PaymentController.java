@@ -69,7 +69,8 @@ public class PaymentController {
         
         // Customers can only view their own payments
         if (authentication.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_CUSTOMER"))) {
-            Long customerId = (Long) authentication.getPrincipal();
+            com.ne.backend.entity.User user = (com.ne.backend.entity.User) authentication.getPrincipal();
+            Long customerId = user.getId();
             if (!response.getCustomerId().equals(customerId)) {
                 throw new RuntimeException("Access denied: You can only view your own payments");
             }
@@ -170,7 +171,8 @@ public class PaymentController {
         
         // Customers can only view their own payments
         if (authentication.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_CUSTOMER"))) {
-            Long customerId = (Long) authentication.getPrincipal();
+            com.ne.backend.entity.User user = (com.ne.backend.entity.User) authentication.getPrincipal();
+            Long customerId = user.getId();
             for (PaymentResponse payment : response) {
                 if (!payment.getCustomerId().equals(customerId)) {
                     throw new RuntimeException("Access denied: You can only view your own payments");
@@ -196,7 +198,8 @@ public class PaymentController {
     public ApiResponse<List<PaymentResponse>> getMyPayments(Authentication authentication) {
         log.info("Get my payments request received");
         
-        Long customerId = (Long) authentication.getPrincipal();
+        com.ne.backend.entity.User user = (com.ne.backend.entity.User) authentication.getPrincipal();
+        Long customerId = user.getId();
         List<PaymentResponse> response = paymentService.getByCustomer(customerId);
         
         return ApiResponse.<List<PaymentResponse>>builder()

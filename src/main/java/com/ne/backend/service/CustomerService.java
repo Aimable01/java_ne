@@ -5,6 +5,8 @@ import com.ne.backend.dto.customer.CustomerResponse;
 import com.ne.backend.dto.customer.UpdateCustomerRequest;
 import com.ne.backend.entity.Customer;
 import com.ne.backend.enums.CustomerStatus;
+import com.ne.backend.enums.Role;
+import com.ne.backend.enums.UserStatus;
 import com.ne.backend.exception.ResourceNotFoundException;
 import com.ne.backend.repository.CustomerRepository;
 import lombok.RequiredArgsConstructor;
@@ -13,6 +15,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.Set;
 
 /**
  * Service for managing customers
@@ -45,12 +49,15 @@ public class CustomerService {
         customer.setEmail(request.getEmail());
         customer.setMobile(request.getMobile());
         customer.setPassword(passwordEncoder.encode(request.getPassword()));
+        customer.setStatus(UserStatus.ACTIVE);
+        customer.setRoles(Set.of(Role.ROLE_CUSTOMER)); // Assign CUSTOMER role
         customer.setNationalId(request.getNationalId());
         customer.setAddress(request.getAddress());
         customer.setCustomerStatus(request.getCustomerStatus());
+        customer.setSurplus(java.math.BigDecimal.ZERO);
 
         Customer saved = customerRepository.save(customer);
-        log.info("Customer created successfully with ID: {}", saved.getId());
+        log.info("Customer created successfully with ID: {} and role: CUSTOMER", saved.getId());
 
         return mapToResponse(saved);
     }
