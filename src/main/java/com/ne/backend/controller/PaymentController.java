@@ -17,6 +17,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
@@ -61,9 +63,18 @@ public class PaymentController {
     })
     @PreAuthorize("hasAnyRole('ADMIN', 'FINANCE', 'CUSTOMER')")
     @GetMapping("/{id}")
-    public ApiResponse<PaymentResponse> getById(@PathVariable Long id) {
+    public ApiResponse<PaymentResponse> getById(@PathVariable Long id, Authentication authentication) {
         log.info("Get payment by ID request received: {}", id);
         PaymentResponse response = paymentService.getById(id);
+        
+        // Customers can only view their own payments
+        if (authentication.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_CUSTOMER"))) {
+            Long customerId = (Long) authentication.getPrincipal();
+            if (!response.getCustomerId().equals(customerId)) {
+                throw new RuntimeException("Access denied: You can only view your own payments");
+            }
+        }
+        
         return ApiResponse.<PaymentResponse>builder()
                 .success(true)
                 .message("Payment retrieved successfully")
@@ -153,9 +164,20 @@ public class PaymentController {
     })
     @PreAuthorize("hasAnyRole('ADMIN', 'FINANCE', 'CUSTOMER')")
     @GetMapping("/bill/{billId}")
-    public ApiResponse<List<PaymentResponse>> getByBill(@PathVariable Long billId) {
+    public ApiResponse<List<PaymentResponse>> getByBill(@PathVariable Long billId, Authentication authentication) {
         log.info("Get payments by bill request received: {}", billId);
         List<PaymentResponse> response = paymentService.getByBill(billId);
+        
+        // Customers can only view their own payments
+        if (authentication.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_CUSTOMER"))) {
+            Long customerId = (Long) authentication.getPrincipal();
+            for (PaymentResponse payment : response) {
+                if (!payment.getCustomerId().equals(customerId)) {
+                    throw new RuntimeException("Access denied: You can only view your own payments");
+                }
+            }
+        }
+        
         return ApiResponse.<List<PaymentResponse>>builder()
                 .success(true)
                 .message("Payments retrieved successfully")

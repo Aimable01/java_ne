@@ -156,6 +156,46 @@ public class NotificationService {
         return mapToResponse(saved);
     }
 
+    // Create partial payment reminder notification
+    public NotificationResponse createPartialPaymentReminder(Bill bill) {
+        log.info("Creating partial payment reminder for bill ID: {}", bill.getId());
+
+        Customer customer = bill.getCustomer();
+        String customerName = customer.getFirstName() + " " + customer.getLastName();
+        YearMonth yearMonth = YearMonth.of(bill.getBillingYear(), bill.getBillingMonth());
+        String monthYear = yearMonth.getMonth().name() + " " + yearMonth.getYear();
+
+        String subject = "Partial Payment Received - Balance Remaining";
+        String message = String.format(
+                "Dear %s,\n\nWe have received a partial payment of %s FRW for your %s utility bill.\n\n" +
+                "Remaining balance: %s FRW\n" +
+                "Due date: %s\n\n" +
+                "Please remember to complete the payment before the due date to avoid any late fees.\n\n" +
+                "Thank you for your business.",
+                customerName,
+                bill.getAmountPaid(),
+                monthYear,
+                bill.getOutstandingBalance(),
+                bill.getDueDate()
+        );
+
+        Notification notification = Notification.builder()
+                .customer(customer)
+                .notificationType(NotificationType.PAYMENT_RECEIVED)
+                .subject(subject)
+                .message(message)
+                .relatedBillId(bill.getId())
+                .build();
+
+        Notification saved = notificationRepository.save(notification);
+        
+        sendEmailNotification(saved);
+
+        log.info("Partial payment reminder created with ID: {}", saved.getId());
+
+        return mapToResponse(saved);
+    }
+
     // Send email notification
     @Transactional
     public void sendEmailNotification(Notification notification) {

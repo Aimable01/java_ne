@@ -90,6 +90,28 @@ public class BillingService {
 
         BigDecimal totalAmount = subTotal.add(vatAmount);
 
+        // Apply customer surplus to reduce bill amount
+        BigDecimal surplus = customer.getSurplus() != null ? customer.getSurplus() : BigDecimal.ZERO;
+        BigDecimal finalAmount = totalAmount;
+        BigDecimal appliedSurplus = BigDecimal.ZERO;
+        
+        if (surplus.compareTo(BigDecimal.ZERO) > 0) {
+            if (surplus.compareTo(totalAmount) >= 0) {
+                // Surplus covers entire bill
+                appliedSurplus = totalAmount;
+                finalAmount = BigDecimal.ZERO;
+                customer.setSurplus(surplus.subtract(totalAmount));
+                log.info("Customer surplus covers entire bill. Applied {} from surplus for customer ID: {}", appliedSurplus, customer.getId());
+            } else {
+                // Partial surplus application
+                appliedSurplus = surplus;
+                finalAmount = totalAmount.subtract(surplus);
+                customer.setSurplus(BigDecimal.ZERO);
+                log.info("Applied {} from customer surplus for customer ID: {}. Remaining bill amount: {}", appliedSurplus, customer.getId(), finalAmount);
+            }
+            customerRepository.save(customer);
+        }
+
         LocalDate dueDate = LocalDate.of(year, month, 15).plusMonths(1);
 
         Bill bill = Bill.builder()
@@ -107,10 +129,10 @@ public class BillingService {
                 .vatAmount(vatAmount)
                 .penaltyAmount(BigDecimal.ZERO)
                 .totalAmount(totalAmount)
-                .amountPaid(BigDecimal.ZERO)
-                .outstandingBalance(totalAmount)
+                .amountPaid(appliedSurplus)
+                .outstandingBalance(finalAmount)
                 .dueDate(dueDate)
-                .status(BillStatus.PENDING)
+                .status(finalAmount.compareTo(BigDecimal.ZERO) == 0 ? BillStatus.PAID : BillStatus.PENDING)
                 .build();
 
         Bill saved = billRepository.save(bill);

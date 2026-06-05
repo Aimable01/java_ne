@@ -10,6 +10,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 /**
@@ -38,6 +39,10 @@ public class Customer extends User {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private CustomerStatus customerStatus = CustomerStatus.ACTIVE;
+
+    // Surplus balance from overpayments (applied to future bills)
+    @Column(precision = 12, scale = 2)
+    private BigDecimal surplus = BigDecimal.ZERO;
 
     // Timestamp when customer was created
     @CreationTimestamp

@@ -3,10 +3,12 @@ package com.ne.backend.service;
 import com.ne.backend.dto.payment.CreatePaymentRequest;
 import com.ne.backend.dto.payment.PaymentResponse;
 import com.ne.backend.entity.Bill;
+import com.ne.backend.entity.Customer;
 import com.ne.backend.entity.Payment;
 import com.ne.backend.enums.BillStatus;
 import com.ne.backend.exception.ResourceNotFoundException;
 import com.ne.backend.repository.BillRepository;
+import com.ne.backend.repository.CustomerRepository;
 import com.ne.backend.repository.PaymentRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -26,6 +28,7 @@ public class PaymentService {
 
     private final PaymentRepository paymentRepository;
     private final BillRepository billRepository;
+    private final CustomerRepository customerRepository;
     private final NotificationService notificationService;
 
     @Transactional
@@ -43,9 +46,10 @@ public class PaymentService {
             throw new RuntimeException("Cannot make payment for cancelled bills");
         }
 
-        if (request.getAmountPaid().compareTo(bill.getOutstandingBalance()) > 0) {
-            throw new RuntimeException("Payment amount cannot exceed outstanding balance");
-        }
+        // Allow overpayments - surplus will be tracked on customer
+        // if (request.getAmountPaid().compareTo(bill.getOutstandingBalance()) > 0) {
+        //     throw new RuntimeException("Payment amount cannot exceed outstanding balance");
+        // }
 
         Payment payment = Payment.builder()
                 .bill(bill)
@@ -74,13 +78,32 @@ public class PaymentService {
         bill.setAmountPaid(totalPaid);
         bill.setOutstandingBalance(bill.getTotalAmount().subtract(totalPaid));
 
-        if (bill.getOutstandingBalance().compareTo(BigDecimal.ZERO) <= 0) {
+        Customer customer = bill.getCustomer();
+        
+        // Handle overpayment - add surplus to customer account
+        if (totalPaid.compareTo(bill.getTotalAmount()) > 0) {
+            BigDecimal overpayment = totalPaid.subtract(bill.getTotalAmount());
+            customer.setSurplus(customer.getSurplus().add(overpayment));
+            bill.setOutstandingBalance(BigDecimal.ZERO);
+            bill.setStatus(BillStatus.PAID);
+            log.info("Overpayment detected. Added {} to customer surplus for customer ID: {}", overpayment, customer.getId());
+        } 
+        // Handle partial payment - notify customer of remaining balance
+        else if (bill.getOutstandingBalance().compareTo(BigDecimal.ZERO) > 0) {
+            bill.setStatus(BillStatus.PARTIALLY_PAID);
+            log.info("Partial payment. Outstanding balance: {} for bill ID: {}", bill.getOutstandingBalance(), bill.getId());
+            // Send reminder notification for remaining balance
+            notificationService.createPartialPaymentReminder(bill);
+        }
+        // Full payment
+        else {
             bill.setStatus(BillStatus.PAID);
             bill.setOutstandingBalance(BigDecimal.ZERO);
             notificationService.createFullPaymentNotification(bill);
         }
 
         billRepository.save(bill);
+        customerRepository.save(customer);
         log.info("Bill balance updated for bill ID: {}", bill.getId());
     }
 
@@ -140,8 +163,13 @@ public class PaymentService {
     }
 
     private PaymentResponse mapToResponse(Payment payment) {
+        Customer customer = payment.getBill().getCustomer();
+        String customerName = customer.getFirstName() + " " + customer.getLastName();
+        
         return PaymentResponse.builder()
                 .id(payment.getId())
+                .customerId(customer.getId())
+                .customerName(customerName)
                 .billId(payment.getBill().getId())
                 .referenceNumber(payment.getReferenceNumber())
                 .amountPaid(payment.getAmountPaid())

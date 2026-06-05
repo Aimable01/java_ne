@@ -16,6 +16,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -59,9 +61,18 @@ public class BillController {
     })
     @PreAuthorize("hasAnyRole('ADMIN', 'OPERATOR', 'FINANCE', 'CUSTOMER')")
     @GetMapping("/{id}")
-    public ApiResponse<BillResponse> getById(@PathVariable Long id) {
+    public ApiResponse<BillResponse> getById(@PathVariable Long id, Authentication authentication) {
         log.info("Get bill by ID request received: {}", id);
         BillResponse response = billingService.getById(id);
+        
+        // Customers can only view their own bills
+        if (authentication.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_CUSTOMER"))) {
+            Long customerId = (Long) authentication.getPrincipal();
+            if (!response.getCustomerId().equals(customerId)) {
+                throw new RuntimeException("Access denied: You can only view your own bills");
+            }
+        }
+        
         return ApiResponse.<BillResponse>builder()
                 .success(true)
                 .message("Bill retrieved successfully")
@@ -133,8 +144,17 @@ public class BillController {
     })
     @PreAuthorize("hasAnyRole('ADMIN', 'OPERATOR', 'FINANCE', 'CUSTOMER')")
     @GetMapping("/customer/{customerId}")
-    public ApiResponse<List<BillResponse>> getByCustomer(@PathVariable Long customerId) {
+    public ApiResponse<List<BillResponse>> getByCustomer(@PathVariable Long customerId, Authentication authentication) {
         log.info("Get bills by customer request received: {}", customerId);
+        
+        // Customers can only view their own bills
+        if (authentication.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_CUSTOMER"))) {
+            Long authenticatedCustomerId = (Long) authentication.getPrincipal();
+            if (!customerId.equals(authenticatedCustomerId)) {
+                throw new RuntimeException("Access denied: You can only view your own bills");
+            }
+        }
+        
         List<BillResponse> response = billingService.getByCustomer(customerId);
         return ApiResponse.<List<BillResponse>>builder()
                 .success(true)
